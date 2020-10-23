@@ -5,7 +5,7 @@ using namespace std;
 #include "Employee.h"
 
 // command to compile in g++
-// g++ --std=c++17 *.cpp -o ./output && ./output
+// g++ --std=c++17 *.cpp -o ./output.out && ./output.out
 int main()
 {
     ios_base::sync_with_stdio(false);
