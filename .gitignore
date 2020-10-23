@@ -45,4 +45,6 @@ cses.py
 
 *.png
 
-test/
+**/test/
+test/*
+test/test.cpp
