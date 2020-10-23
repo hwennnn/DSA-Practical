@@ -33,7 +33,7 @@
 
 .DS_Store
 
-.vscode
+.vscode/
 
 **/test.py*
 test.cpp
@@ -45,4 +45,4 @@ cses.py
 
 *.png
 
-.test
+test/
