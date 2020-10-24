@@ -1,11 +1,15 @@
 // Employee.cpp - Implementation
 #include "Employee.h" 	// Specification of Employee class
-// #include <string>
+#include <string>
 
-// using namespace std;
+using namespace std;
 
 Employee::Employee() { }
-Employee::Employee(string fn, string ln, int ms){ firstName = fn, lastName = ln, monthlySalary = (ms > 0) ? ms : 0; }
+Employee::Employee(string fn, string ln, int ms){ 
+    firstName = fn;
+    lastName = ln;
+    setMonthlySalary(ms); 
+}
 
 string Employee::getFirstName(){ return firstName;}
 string Employee::getLastName(){ return lastName;}
