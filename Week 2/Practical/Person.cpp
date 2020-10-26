@@ -18,5 +18,5 @@ void Person::setName(string n){ name = n;}
 void Person::setTelNo(string tn){ telNo = tn;}
 
 void Person::print(){
-    cout << name << " " << telNo << endl;
+    cout << "Name: " << name << " ContactNo: " << telNo << endl;
 }

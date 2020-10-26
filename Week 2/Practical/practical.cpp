@@ -5,7 +5,7 @@ using namespace std;
 #include "Person.h"
 #include "List.h"
 
-void printMenu(){
+int printMenu(){
     cout << "---------------- Main Menu -------------------" << endl;
     cout << "[1] List the phone numbers" << endl;
     cout << "[2] Add a new contact" << endl;
@@ -14,6 +14,11 @@ void printMenu(){
     cout << "[0] Exit" << endl;
     cout << "----------------------------------------------" << endl;
     cout << "Enter your option : ";
+    int option;
+    cin >> option;
+    cout << endl;
+
+    return option;
 }
 
 // command to compile in g++
@@ -25,15 +30,12 @@ int main()
 
     List personList;
 
-    bool going = true;
-    while (going){
-        printMenu();
-        int option;
+    int option = -1;
+    while (option != 0){
+        option = printMenu();
         string number, name;
         bool success;
-        cin >> option;
-        cout << endl;
-
+        
         switch(option){
             case 1: { 
                 cout << "[1] List the phone numbers" << endl;
@@ -43,21 +45,17 @@ int main()
             case 2: {
                 cout << "[2] Add a new contact" << endl;
 
-                cout << "Please enter the contact number: ";
+                cout << "Please enter the name of the contact: ";
                 cin.ignore();
+                getline(cin, name);
+
+                cout << "Please enter the contact number: ";
+                cin.clear();
                 getline(cin, number);
 
-                cout << "Please enter the name of the contact: ";
-                cin.clear();
-                getline(cin, name);
-                cout << "debug " << name << endl; 
                 Person p(name, number);
                 success = personList.add(p);
-                if (success){
-                    cout << "Successfully add the person into the list" << endl;
-                }else{
-                    cout << "Unsuccessfully add the person into the list" << endl;
-                }
+                
                 break;
             }
             case 3: {
@@ -68,11 +66,7 @@ int main()
                 getline(cin, number);
 
                 success = personList.remove(number);
-                if (success){
-                    cout << "Successfully remove the person into the list" << endl;
-                }else{
-                    cout << "Unsuccessfully remove the person into the list" << endl;
-                }
+
                 break;
             }
             case 4: {
@@ -83,16 +77,12 @@ int main()
                 getline(cin, number);
 
                 Person person = personList.search(number);
-                if (person.getName() == ""){
-                    cout << "Person not found" << endl;
-                }else{
-                    cout << person.getName() << " " << person.getTelNo() << endl;
-                }
+                
                 break;
             }
+
             case 0:{
-                going = false;
-                cout << "App exiting...." << endl;
+                cout << "Exiting application...." << endl;
                 break;
             }
             default: {
