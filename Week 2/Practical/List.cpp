@@ -33,12 +33,10 @@ void List::remove(int index)
 
 ItemType List::search(string name)
 {
-	bool found = false;
 	ItemType person;
 	for (int i = 0; i < size; i++){
 		if (items[i].getName() == name){
 			person = items[i];
-			found = true;
 			break;
 		}
 	}
