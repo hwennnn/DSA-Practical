@@ -13,59 +13,44 @@ bool List::add(ItemType item)
 	{
 		items[size] = item;
 		size++;   
-		cout << item.getName() << " with contact number of " << item.getTelNo() << " is added from the list." << endl;
-	}else{
-		cout << "The contact list is already full." << endl;
 	}
 	
 	return success;
 }
 
-bool List::remove(string number)
+void List::remove(int index)
 {
-	bool isExist = false;
-	int index = -1;
-	for (int i = 0; i < size; i++){
-		if (items[i].getTelNo() == number){
-			isExist = true;
-			index = i;
-			break;
-		}
-	}
-
-	if (isExist){  
+	bool success = (index >= 0) && (index < size);
+	if (success)
+	{  // delete item by shifting all items at positions >
+	   // index toward the beginning of the list
+	   // (no shift if index == size)
 		for (int pos = index; pos < size; pos++)
 			items[pos] = items[pos + 1];
-		size--;  
-		cout << "The person with contact number" <<  number << " is removed from the list." << endl;
-	}else{
-		cout << "The contact number was not found in the contact list." << endl;
+		size--;  // decrease the size by 1
 	}
-
-	return isExist;
-
 }
 
-ItemType List::search(string number)
+ItemType List::search(string name)
 {
 	bool found = false;
 	ItemType person;
 	for (int i = 0; i < size; i++){
-		if (items[i].getTelNo() == number){
+		if (items[i].getName() == name){
 			person = items[i];
 			found = true;
 			break;
 		}
 	}
 
-	if (!found){
-		cout << "Person was not found in the contact list." << endl;
-	}else{
-		cout << "The person with contact number of " << person.getTelNo() <<  " is called " << person.getName() << endl;
-	}
-
 	return person;
 }
+
+// check the size of the list
+int List::getLength() { return size; }
+
+// check if the list is empty
+bool List::isEmpty() { return size == 0; }
 
 void List::print()
 {

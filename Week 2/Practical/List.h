@@ -11,7 +11,7 @@ class List
 {
 private:
 	ItemType items[MAX_SIZE];
-	int      size;
+	int size;
 
 public:
 
@@ -28,12 +28,16 @@ public:
 	// pre : 0 <= index < size
 	// post: item is removed the specified position in the list
 	//       size of list is decreased by 1
-	bool remove(string number);
+	void remove(int index);
 
 	// get an item at a specified position of the list (retrieve)
 	// pre : 0 <= index < size
 	// post: none
-	ItemType search(string number);
+	ItemType search(string name);
+
+	int getLength();
+
+	bool isEmpty();
 
 	void print();
 };
