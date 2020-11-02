@@ -37,8 +37,10 @@ bool List::add(int index, ItemType item){
 
     if (success){
         Node *curr = firstNode; 
+        
         Node *node = new Node;
         node->item = item;
+        node->next = NULL;
 
         if (index == 0){
             node->next = curr;
