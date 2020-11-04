@@ -12,6 +12,18 @@ List::List() {
     firstNode->next = NULL;
 }
 
+List::~List(){
+    Node *temp = firstNode;
+    while (temp){
+        firstNode = firstNode->next;
+        temp->next = NULL;
+        delete temp;
+        temp = firstNode;
+    }
+
+    size = 0;
+}
+
 
 bool List::add(ItemType item){
     Node *temp = new Node;
@@ -46,11 +58,8 @@ bool List::add(int index, ItemType item){
             node->next = curr;
             firstNode = node;
         }else{
-            int i = 0;
-            while (i < index - 1){
+            for (int i = 0; i < index-1; ++i)
                 curr = curr->next;
-                ++i;
-            }
 
             Node *temp = curr->next;
             curr->next = node;
@@ -73,12 +82,13 @@ void List::remove(int index){
             Node *temp = curr->next;
             firstNode = temp;
         }else{
-            int i = 0;
-            while (i < index - 1){
+            for (int i = 0; i < index-1; ++i)
                 curr = curr->next;
-                ++i;
-            }
+            
+            Node *nd = curr->next;
+
             curr->next = curr->next->next;
+            delete nd;
         }
         --size;
     }
@@ -91,11 +101,8 @@ ItemType List::get(int index){
 
     if (success){
         Node *curr = firstNode;
-        int i = 0;
-        while (i < index){
+        for (int i = 0; i < index; ++i)
             curr = curr->next;
-            ++i;
-        }
 
         res = curr->item;
     }
