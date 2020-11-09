@@ -20,24 +20,28 @@ int main()
         cout << "[1] Visit URL\n[2] Back\n[3] Forward \n[0] Exit\nYour Choice: ";
         cin >> temp;
         switch (temp){
-            case 1:
+            case 1:{
                 visitURL(back_stack, forward_stack);
                 break;
-
-            case 2:
+            }
+                
+            case 2:{
                 back(back_stack, forward_stack);
                 break;
-
-            case 3:
+            }
+                
+            case 3:{
                 forward(forward_stack);
+                break;      
+            }
+                
+            case 0:{
+                cout << "Exiting application...." << endl;
                 break;
-
-            case 0:
-                break;
-
-            default:
-                break;
-
+            }
+            default: {
+                cout << "Please enter option 0 to 3!" << endl;
+            }
         }
 
         cout << "\n";
@@ -51,8 +55,10 @@ void visitURL(Stack *back, Stack *forward){
     cin >> url; cout << endl;
     back->push(url);
 
-    forward->~Stack();
-    forward = new Stack;
+    if (!forward->isEmpty()){
+        forward->~Stack();
+        forward = new Stack;
+    }
 }
 
 void back(Stack *back, Stack *forward){
@@ -63,12 +69,19 @@ void back(Stack *back, Stack *forward){
     string curr;
     back->getTop(curr);
 
-    cout << "Current URL: " << curr << endl;
+    if (back->isEmpty())
+        cout << "Back history is empty." << endl;
+    else
+        cout << "Current URL: " << curr << endl;
+
 }
 
 void forward(Stack *forward){
     string url;
     forward->pop(url);
 
-    cout << "Current URL: " << url << endl;
+    if (forward->isEmpty())
+        cout << "Forward history is empty." << endl;
+    else
+        cout << "Current URL: " << url << endl;
 }
