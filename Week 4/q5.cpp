@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../Stack.h"
+#include "Stack.h"
 
 void visitURL(Stack *back, Stack *forward);
 void back(Stack *back, Stack *forward);
@@ -8,7 +8,7 @@ void forward(Stack *forward);
 
 using namespace std;
 
-// g++ --std=c++17 q5.cpp ../Stack.cpp -o ./output.out && ./output.out
+// g++ --std=c++17 q5.cpp Stack.cpp -o ./output.out && ./output.out
 
 int main()
 {
