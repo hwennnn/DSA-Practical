@@ -4,7 +4,7 @@
 
 void visitURL(Stack *back, Stack *forward);
 void back(Stack *back, Stack *forward);
-void forward(Stack *forward);
+void forward(Stack *back, Stack *forward);
 
 using namespace std;
 
@@ -31,7 +31,7 @@ int main()
             }
                 
             case 3:{
-                forward(forward_stack);
+                forward(back_stack, forward_stack);
                 break;      
             }
                 
@@ -76,12 +76,14 @@ void back(Stack *back, Stack *forward){
 
 }
 
-void forward(Stack *forward){
-    string url;
-    forward->pop(url);
-
+void forward(Stack *back, Stack *forward){
+    
     if (forward->isEmpty())
         cout << "Forward history is empty." << endl;
-    else
+    else{
+        string url;
+        forward->pop(url);
+        back->push(url);
         cout << "Current URL: " << url << endl;
+    }
 }
