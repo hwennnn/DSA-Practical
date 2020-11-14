@@ -83,9 +83,18 @@ void Stack::displayInOrder(){
 
 void Stack::displayInOrderOfInsertion(){
     Node *curr = topNode;
+    Stack s = Stack();
 
-    printReverse(curr);
-    cout << endl;
+    while (curr){
+        s.push(curr->item);
+        curr = curr->next;
+    }
+    
+    s.displayInOrder();
+
+    // using recursion to reach to last node and print out the item from back to forward
+    // printReverse(curr);
+    // cout << endl;
 }
 
 void Stack::printReverse(Node *head){
