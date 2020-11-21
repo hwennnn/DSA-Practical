@@ -28,7 +28,7 @@ int main()
     // q->displayItems();
 
 
-    // Q6: isPalndrome
+    // Q6: isPalindrome
     
     Stack *s = new Stack;
     Queue *q = new Queue;
