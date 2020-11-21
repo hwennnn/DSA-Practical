@@ -32,14 +32,15 @@ int main()
     
     Stack *s = new Stack;
     Queue *q = new Queue;
+    int length;
     cout << "Determining Palindrome using Stack and Queue" << endl;
-    while (true){
-        cout << "Please enter a character (input '0' to stop this operation): ";
+    cout << "Please enter the length of the string: ";
+    cin >> length;
+
+    while (length--){
+        cout << "Please enter a character: ";
         ItemType input;
         cin >> input;
-        if (input == '0'){
-            break;
-        }
         s->push(input);
         q->enqueue(input);
     }
