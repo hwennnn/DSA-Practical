@@ -6,13 +6,15 @@
 
 using namespace std;
 
-// g++ --std=c++17 q6.cpp Customer.cpp Queue.cpp -o ./output.out && ./output.out
+// g++ --std=c++17 q7.cpp Customer.cpp Queue.cpp -o ./output.out && ./output.out
 
 
 int main(){
     Queue *q = new Queue;
+    srand(time(0)); 
 
     int n, total, c = -1;
+    cout << "Enter number of simulation: ";
     cin >> n;
 
     for (int i = 0; i <= n; i++){
@@ -27,6 +29,8 @@ int main(){
         
         if (i < n){
             int random = rand() % 3;
+            if (random == 0)
+                cout << "No customer will be picked up this round." << endl;
             while (random--){
                 Customer cust;
                 string name;

@@ -2,16 +2,16 @@
 #pragma once
 #include<string>
 #include<iostream>
-using namespace std;
+#include "Customer.h"
 
-typedef char ItemType;
+using namespace std;
 
 class Queue
 {
   private:
     struct Node
     {
-      ItemType item;	// item
+      Customer item;	// item
       Node *next;	// pointer pointing to next item
     };
 
@@ -20,25 +20,25 @@ class Queue
 
 
   public:
-	// constructor
-	Queue();
+    // constructor
+    Queue();
 
     ~Queue();
 
-	// enqueue (add) item at the back of queue
-	bool enqueue(ItemType item);
+    // enqueue (add) item at the back of queue
+    bool enqueue(Customer item);
 
-	// dequeue (remove) item from front of queue
-	bool dequeue();
+    // dequeue (remove) item from front of queue
+    bool dequeue();
 
     // dequeue (remove) and retrieve item from front of queue
-	bool dequeue(ItemType &item);
+    bool dequeue(Customer &item);
 
-	// retrieve (get) item from front of queue
-	void getFront(ItemType &item); 
+    // retrieve (get) item from front of queue
+    void getFront(Customer &item); 
 
-	// check if the queue is empty
-	bool isEmpty(); 
+    // check if the queue is empty
+    bool isEmpty(); 
 
     // display items in queue from front to back
     void displayItems();

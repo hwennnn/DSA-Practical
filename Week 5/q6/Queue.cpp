@@ -1,6 +1,8 @@
 // Queue.cpp - Implementation
 #include "Queue.h" 	// Specification of Queue class
 
+typedef char ItemType;
+
 Queue::Queue(){
     frontNode = backNode = NULL;
 }
@@ -18,7 +20,7 @@ Queue::~Queue(){
     delete backNode;
 }
 
-bool Queue::enqueue(Customer item){
+bool Queue::enqueue(ItemType item){
     Node *newNode = new Node;
     newNode->item = item;
     newNode->next = NULL;
@@ -51,12 +53,11 @@ bool Queue::dequeue(){
     return !empty;
 }
 
-bool Queue::dequeue(Customer &item){
+bool Queue::dequeue(ItemType &item){
     bool empty = isEmpty();
 
     if (!empty){
         if (frontNode == backNode){
-            item = frontNode->item;
             frontNode = backNode = NULL;
         }else{
             Node* temp = frontNode;
@@ -70,7 +71,7 @@ bool Queue::dequeue(Customer &item){
     return !empty;
 }
 
-void Queue::getFront(Customer &item){
+void Queue::getFront(ItemType &item){
     if (!isEmpty()){
         item = frontNode->item;
     }
@@ -80,7 +81,7 @@ void Queue::displayItems(){
     if (!isEmpty()){
         Node *curr = frontNode;
         while (curr){
-            cout << curr->item.getName() << " ";
+            cout << curr->item << " ";
             curr = curr->next;
         }
         cout << endl;
