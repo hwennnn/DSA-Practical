@@ -5,6 +5,7 @@ typedef string KeyType;
 typedef string ItemType;
 
 Dictionary::Dictionary(){
+    // initialise the node at each index to NULL
     for (int i = 0; i < MAX_SIZE; i++){
         items[i] = NULL;
     }
@@ -13,6 +14,7 @@ Dictionary::Dictionary(){
 }
 
 Dictionary::~Dictionary(){
+    // deallcoate the memory
     for (int i = 0; i < MAX_SIZE; i++){
         if (items[i]){
             delete items[i];
@@ -21,6 +23,7 @@ Dictionary::~Dictionary(){
 }
 
 int Dictionary::hash(KeyType key){
+    // hash the strings into an integer value
     int val = 0;
     for (auto &c: key){
         val += charValue(c);
@@ -31,17 +34,19 @@ int Dictionary::hash(KeyType key){
 
 bool Dictionary::add(KeyType newKey, ItemType newItem){
     int index = hash(newKey);
-    cout << newKey << " " << index << endl;
 
     Node *node = new Node;
     node->item = newItem;
     node->key = newKey;
     node->next = NULL;
 
-    if (items[index] == NULL){
+    Node *curr = items[index];
+
+    if (curr == NULL){
+        // set the node to the index if the list at index is empty
         items[index] = node;
     }else{
-        Node *curr = items[index];
+        // looping to the last index and return false when a same key exists
         if (curr->key == newKey)
             return false;
         
@@ -51,6 +56,7 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
                 return false;
         }
 
+        // set last node point to the new node
         curr->next = node;
     }
 
@@ -61,9 +67,38 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
 
 void Dictionary::remove(KeyType key){
     int index = hash(key);
-    if (items[index]){
-        delete items[index];
-        items[index] = NULL;
+    Node *node = items[index];
+
+    // if list at index is not empty
+    if (node){
+        Node *curr = node;
+        // check if the key is at the first node of the list
+        // point to the next Node and deallocate memory
+        if (node->key == key){
+            Node *temp = curr->next;
+            curr->next = NULL;
+            delete curr;
+            items[index] = temp;
+        }else{
+            // loop to the previous node of the target node which has the key
+            while (curr->next && curr->next->key != key){
+                curr = curr->next;
+            }
+
+            // point the prev node to the next node of the target node
+            // deallocate memory
+            Node *temp = curr->next;
+            if (temp && temp->key == key){
+                curr->next = curr->next->next;
+                temp->next = NULL;
+                delete temp;
+            }else{
+                // return if no key was found
+                return;
+            }
+
+        }
+
         size--;
     }
 }
@@ -72,8 +107,15 @@ ItemType Dictionary::get(KeyType key){
     ItemType item;
     int index = hash(key);
 
+    // loop through keys if list at index is not empty
     if (items[index]){
-        item = items[index]->item;
+        Node *curr = items[index];
+        while (curr){
+            if (curr->key == key)
+                return curr->item;
+            
+            curr = curr->next;
+        }
     }
 
     return item;
@@ -99,6 +141,7 @@ void Dictionary::print(){
     }
 }
 
+// helper function to get the char value
 int Dictionary::charValue(char c){
     if (isalpha(c))
 	{

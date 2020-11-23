@@ -14,10 +14,12 @@ int main(){
     phoneBook->add("Wesley", "64607237");
     phoneBook->add("WeeChong", "64506854");
     phoneBook->print();
+    cout << endl;
 
     phoneBook->add("Eugene", "64608256");
     phoneBook->add("Saiful", "64608256");
     phoneBook->print();
+    cout << endl;
 
     phoneBook->add("PohSeng", "12345678");
 

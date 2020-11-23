@@ -8,7 +8,6 @@ const int MAX_SIZE = 101;
 typedef string KeyType;
 typedef string ItemType;
 
-
 class Dictionary
 {
 private:
