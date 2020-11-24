@@ -45,5 +45,5 @@ int main(){
 
     cout << "In this " << n << "-min period, the average time to be served = " << total/double(n) << " mins" << endl;
 
-
+    return 0;
 }

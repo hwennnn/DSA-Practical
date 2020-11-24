@@ -26,4 +26,6 @@ int main(){
     phoneBook->remove("Eugene");
 
     phoneBook->print();
+
+    return 0;
 }
