@@ -24,12 +24,18 @@ Dictionary::~Dictionary(){
 
 int Dictionary::hash(KeyType key){
     // hash the strings into an integer value
-    int val = 0;
-    for (auto &c: key){
-        val += charValue(c);
-    }
+    int total = charValue(key[0]);
 
-    return val % MAX_SIZE;
+   for (int i = 1; i < key.size(); i++){
+        if (charValue(key[i]) < 0)
+            continue;
+
+        total = total * 52 + charValue(key[i]);
+        
+        total %= MAX_SIZE;
+   }    
+
+    return total;
 }
 
 bool Dictionary::add(KeyType newKey, ItemType newItem){
