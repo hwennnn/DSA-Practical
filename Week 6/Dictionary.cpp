@@ -17,8 +17,12 @@ Dictionary::~Dictionary(){
     // deallcoate the memory
     for (int i = 0; i < MAX_SIZE; i++){
         if (items[i]){
-            delete items[i];
+            Node *temp = items[i];
+            temp->next = NULL;
+
+            delete temp;
         }
+        items[i] = NULL;
     }
 }
 
