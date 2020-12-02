@@ -23,12 +23,12 @@ void printBackward(int array[], int n){
 
 // Also there is other way you can do this without modifying the array (which is less fancier but work optimally)
 
-// void printBackward(int array[], int n){
-//     if (n > 0){
-//         cout << array[n-1] << " ";
-//         printBackward(array, n-1);
-//     }
-// }
+void printBackward2(int array[], int n){
+    if (n > 0){
+        cout << array[n-1] << " ";
+        printBackward(array, n-1);
+    }
+}
 
 int main(){
     int arr[] = {1,2,3,4,5,6};
