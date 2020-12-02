@@ -26,7 +26,7 @@ void printBackward(int array[], int n){
 void printBackward2(int array[], int n){
     if (n > 0){
         cout << array[n-1] << " ";
-        printBackward(array, n-1);
+        printBackward2(array, n-1);
     }
 }
 
@@ -35,6 +35,9 @@ int main(){
     int length = sizeof(arr) / sizeof(int);
 
     printBackward(arr, length);
+    cout << endl;
+
+    printBackward2(arr, length);
     cout << endl;
 
     return 0;
