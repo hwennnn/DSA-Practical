@@ -10,7 +10,9 @@ long power(int a, int n){
 }
 
 int main(){
-    cout << power(5,3) << endl;
+    int a = 5;
+    if (a > 0)
+        cout << power(a,3) << endl;
 
     return 0;
 }
