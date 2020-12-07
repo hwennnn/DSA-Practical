@@ -148,6 +148,25 @@ void List::sortedInsert(ItemType item)
 
 List::Node* List::sortedMerge(Node*& a, Node*& b) 
 {
-	//to be implemented
+	Node* res = new Node;
+	res->item = -1; //dummy
+	Node* curr = res;
+
+	while (a != nullptr && b != nullptr){
+		if (b->item < a->item){
+			curr->next = b;
+			b = b->next;
+		}else{
+			curr->next = a;
+			a = a->next;
+		}
+
+		curr = curr->next;
+	}
+
+	Node *leftover = (a != nullptr) ? a : b;
+	curr->next = leftover;
+
+	return res->next;
 	
 }
