@@ -142,7 +142,22 @@ void List::print()
 
 void List::sortedInsert(ItemType item)
 {
-	//to be implemented
+	Node *newNode = new Node;
+	newNode->item = item;
+	newNode->next = NULL;
+
+	Node *curr = firstNode;
+	// if the first element is smaller
+	if (item < curr->item){
+		newNode->next = curr;
+		firstNode = newNode;
+	}else{
+		while (curr->next && curr->next->item < item)
+			curr = curr->next;
+
+		newNode->next = curr->next;
+		curr->next = newNode;
+	}
 }
 
 
