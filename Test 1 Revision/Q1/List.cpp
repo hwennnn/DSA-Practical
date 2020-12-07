@@ -146,6 +146,13 @@ void List::sortedInsert(ItemType item)
 	newNode->item = item;
 	newNode->next = NULL;
 
+	// if firstNode is NULL
+	// point firstNode to newNode 
+	if (firstNode == NULL){
+		firstNode = newNode;
+		return;
+	}
+
 	Node *curr = firstNode;
 	// if the first element is smaller
 	if (item < curr->item){

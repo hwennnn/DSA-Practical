@@ -36,7 +36,7 @@ void nextCustomer(Queue& serviceQueue)
 void displayCount(Queue& serviceQueue)
 {
 	int count = 0;
-	Queue q;;
+	Queue q;
 	while (!serviceQueue.isEmpty()){
 		Customer c;
 		serviceQueue.dequeue(c);
@@ -59,13 +59,8 @@ int main()
 	registerCustomer(serviceQueue, queueNumber);
 	registerCustomer(serviceQueue, queueNumber);
 
-	
 	nextCustomer(serviceQueue);
 	
-
 	displayCount(serviceQueue);
-
-
-
 }
 
