@@ -159,6 +159,9 @@ void List::sortedInsert(ItemType item)
 		curr->next = newNode;
 	}
 }
+// The time complexity of sortedInsert is O(n), where n is the length of the original linked list.
+// At worst case, it will need to do a complete linear scan of the linked list, which is O(n)
+// Therefore the overall complexity comes to O(n), linear time complexity.
 
 
 List::Node* List::sortedMerge(Node*& a, Node*& b) 
