@@ -188,3 +188,6 @@ List::Node* List::sortedMerge(Node*& a, Node*& b)
 	return res->next;
 	
 }
+
+// The time complexity of sortedMerge is O(n+m), where n,m is the length of the first and second linked list respectively.
+// The algorithm needs to traverse the whole length of both linked lists, therefore the time complexity comes to the total of their length.
