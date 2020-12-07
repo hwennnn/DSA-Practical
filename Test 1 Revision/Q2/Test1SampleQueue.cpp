@@ -8,23 +8,46 @@
 
 using namespace std;
 
+// g++ --std=c++17 Test1SampleQueue.cpp Customer.cpp Queue.cpp -o ./output.out && ./output.out
+
 void registerCustomer(Queue& serviceQueue, int& queueNumber)
 {
-	//to be implemented
+	Customer cust;
+	string name;
+	cout << "Please enter your name: ";
+	cin >> name;
+	cout << endl;
 
+	cust.setName(name);
+	cust.setQueueNumber(queueNumber);
+
+	serviceQueue.enqueue(cust);
+	queueNumber++;
 }
 
 void nextCustomer(Queue& serviceQueue)
 {
-	//to be implemented
+	Customer cust;
+	serviceQueue.dequeue(cust);
 	
-
+	cust.print();
 }
 
 void displayCount(Queue& serviceQueue)
 {
+	int count = 0;
+	Queue q;;
+	while (!serviceQueue.isEmpty()){
+		Customer c;
+		serviceQueue.dequeue(c);
+		q.enqueue(c);
+		count++;
+	}
 
-	//to be implemented
+	serviceQueue = q;
+
+	cout << "Total number of customers left: " << count << endl;
+	serviceQueue.display();
 }
 
 int main()
@@ -32,6 +55,10 @@ int main()
 	Queue serviceQueue;
 	int queueNumber = 0;
 	registerCustomer(serviceQueue, queueNumber);
+	registerCustomer(serviceQueue, queueNumber);
+	registerCustomer(serviceQueue, queueNumber);
+	registerCustomer(serviceQueue, queueNumber);
+
 	
 	nextCustomer(serviceQueue);
 	
