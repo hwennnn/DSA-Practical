@@ -153,7 +153,6 @@ int List::helperCountR(Node *node, ItemType item){
 
 void List::reverse(){
     Node *res = new Node;
-    res->item = NULL;
     res->next = NULL;
 
     Node *curr = firstNode;
