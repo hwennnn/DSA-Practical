@@ -47,5 +47,7 @@ public:
 	void displayInOrderOfInsertion();
 
     // negative values in the stack
-    void countPosNeg(int *pos, int *neg); 
+    void countPosNeg(int &pos, int &neg); 
+    void countPosNeg2(int *pos, int *neg); 
+
 };

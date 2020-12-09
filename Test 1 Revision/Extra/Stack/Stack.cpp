@@ -102,15 +102,29 @@ void Stack::printReverse(Node *head){
     cout << head->item << " ";
 }
 
-void Stack::countPosNeg(int *pos, int *neg){
+void Stack::countPosNeg(int &pos, int &neg){
+    pos = neg = 0;
     Node *curr = topNode;
 
     while (curr){
         if (curr->item > 0){
-            cout << "pos" << endl;
+            ++ pos;
+        }else if (curr->item < 0){
+            ++ neg;
+        }
+
+        curr = curr->next;
+    }
+
+}
+
+void Stack::countPosNeg2(int *pos, int *neg){
+    Node *curr = topNode;
+
+    while (curr){
+        if (curr->item > 0){
             ++ *pos;
         }else if (curr->item < 0){
-            cout << "neg" << endl;
             ++ *neg;
         }
 

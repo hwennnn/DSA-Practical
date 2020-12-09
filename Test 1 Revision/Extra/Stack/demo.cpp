@@ -13,8 +13,11 @@ int main()
     s->push(-1);
     s->push(-100);
 
-    int pos = 0, neg = 0;
-    s->countPosNeg(&pos, &neg);
+    int pos, neg, pos2 = 0, neg2 = 0;
+    s->countPosNeg(pos, neg);
+    s->countPosNeg2(&pos2, &neg2);
+    
     cout << pos << " " << neg << endl;
+    cout << pos2 << " " << neg2 << endl;
 
 }
