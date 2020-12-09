@@ -69,5 +69,7 @@ public:
 
 	void sortedInsert(ItemType item);
 
+	void sortedMerge(List list1, List list2);
+
 	Node* sortedMerge(Node*& list1, Node*& list2);
 };

@@ -170,6 +170,10 @@ void List::sortedInsert(ItemType item)
 // At worst case, it will need to do a complete linear scan of the linked list, which is O(n)
 // Therefore the overall complexity comes to O(n), linear time complexity.
 
+void List::sortedMerge(List list1, List list2)
+{
+	firstNode = sortedMerge(list1.firstNode, list2.firstNode);
+}
 
 List::Node* List::sortedMerge(Node*& a, Node*& b) 
 {
