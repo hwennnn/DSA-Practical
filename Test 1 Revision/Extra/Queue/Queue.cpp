@@ -87,14 +87,15 @@ void Queue::getFront(ItemType& item)
 bool Queue::isEmpty() { return frontNode == NULL; }
 
 void Queue::display()
-{
-	Node* temp = frontNode;
-	while (temp != NULL)
-	{
-		cout << temp->item << " ";
-		temp = temp->next;
+{	if (!isEmpty()){
+		Node* temp = frontNode;
+		while (temp != NULL)
+		{
+			cout << temp->item << " ";
+			temp = temp->next;
+		}
+		cout << endl;
 	}
-	cout << endl;
 }
 
 void Queue::push_front(ItemType item){
@@ -102,10 +103,26 @@ void Queue::push_front(ItemType item){
 	node->item = item;
 	node->next = NULL;
 
-	if (frontNode != nullptr){
+	if (!isEmpty()){
 		node->next = frontNode;
 		frontNode = node;
 	}else{
 		frontNode = backNode = node;
+	}
+}
+
+void Queue::pop_back(){
+	if (!isEmpty()){
+		if (frontNode == backNode){
+			frontNode = backNode = NULL;
+			return;
+		}
+
+		Node *curr = frontNode;
+		while (curr->next->next)
+			curr = curr->next;
+		
+		curr->next = NULL;
+		backNode = curr;
 	}
 }

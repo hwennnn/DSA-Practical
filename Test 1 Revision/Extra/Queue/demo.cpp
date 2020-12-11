@@ -13,13 +13,20 @@ int main()
     q.enqueue(a);
     q.enqueue(b);
     q.enqueue(c);
-
     q.display();
+
     q.push_front(69);
     q.display();
-    q.dequeue();
+
+    q.pop_back();
     q.display();
 
     q.dequeue();
+    q.display();
+
+    q.pop_back();
+    q.display();
+
+    q.pop_back();
     q.display();
 }
