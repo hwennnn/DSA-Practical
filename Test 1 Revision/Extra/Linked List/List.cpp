@@ -305,3 +305,31 @@ void List::helperMergeLLAt(Node *node, int pos){
 
     firstNode = res->next;
 }
+
+// reverse LL at range of start...end (inclusive)
+void List::reverseAt(int start, int end){
+    if (start == end || start > end || start >= size || end >= size) return;
+
+    Node *dummy = new Node;
+    dummy->next = firstNode;
+
+    Node *curr = firstNode, *prev = dummy;
+
+    for (int i = 0; i < start; i++){
+        curr = curr->next;
+        prev = prev->next;
+    }
+
+    Node *temp = NULL;
+    for (int i = 0; i < end-start+1; i++){
+        Node *next = curr->next;
+        curr->next = temp;
+        temp = curr;
+        curr = next;
+    }
+
+    prev->next->next = curr;
+    prev->next = temp;
+
+    firstNode = dummy->next;
+}

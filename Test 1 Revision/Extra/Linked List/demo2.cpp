@@ -12,15 +12,15 @@ int main()
     nameList->add('a');
     nameList->add('b');
     nameList->add('a');
-
-    List *list2 = new List;
-    list2->add('d');
-    list2->add('e');
-    list2->add('a');
-    list2->add('d');
+    nameList->add('a');
+    nameList->add('b');
+    nameList->add('c');
+    nameList->add('c');
+    nameList->add('b');
+    nameList->add('c');
+    nameList->add('c');
 
     nameList->print();
-    nameList->mergeLLAt(list2, 3);
+    nameList->reverseAt(1,5);
     nameList->print();
-
 }
