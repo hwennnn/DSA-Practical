@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include <set>
 using namespace std;
 
 typedef char ItemType;
@@ -83,6 +84,10 @@ public:
     void reverseR();
 
     Node* helperReverseR(Node *node);
+
+	void removeDuplicates();
+
+	void removeDuplicates2();
 
 };
 

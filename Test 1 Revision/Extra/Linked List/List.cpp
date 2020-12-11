@@ -183,3 +183,43 @@ List::Node* List::helperReverseR(Node *node){
 
     return curr;
 }
+
+// remove duplicates from ll
+void List::removeDuplicates(){
+    Node *curr = firstNode;
+
+    while (curr){
+        while (curr->next && curr->item == curr->next->item){
+            curr->next = curr->next->next;
+        }
+        curr = curr->next;
+    }
+
+}
+
+// remove duplicates from unsorted ll
+void List::removeDuplicates2(){
+    set<ItemType> seen;
+
+    Node* curr = firstNode;
+
+    while (curr->next){
+        seen.insert(curr->item);
+        curr = curr->next;
+    }
+
+    Node* dummy = new Node;
+    dummy->next = NULL;
+    Node* res = dummy;
+
+    for (auto it: seen){
+        Node* node = new Node;
+        node->item = it;
+        node->next = NULL;
+
+        dummy->next = node;
+        dummy = dummy->next;
+    }
+
+    firstNode = res->next;
+}
