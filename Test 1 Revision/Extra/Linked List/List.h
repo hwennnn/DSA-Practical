@@ -89,5 +89,21 @@ public:
 
 	void removeDuplicates2();
 
+	void removeAllOccurrences(ItemType item);
+
+	void removeAt(int start, int end);
+
+	int getNoOfUniqueElements();
+
+	void mergeLLAt(List newList, int start, int end);
+
+	void reverseAt(int start, int end);
+
+	ItemType getMiddle();
+
+	int retrieveLength1();
+
+	int retrieveLength2();
+
 };
 

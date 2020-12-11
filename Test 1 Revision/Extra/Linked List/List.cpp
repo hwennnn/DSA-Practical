@@ -223,3 +223,20 @@ void List::removeDuplicates2(){
 
     firstNode = res->next;
 }
+
+void List::removeAllOccurrences(ItemType item){
+    Node *curr = new Node;
+    curr->item = -1;
+    curr->next = firstNode;
+    Node *res = curr;
+
+    while (curr){
+        while (curr->next && curr->next->item == item){
+            curr->next = curr->next->next;
+        }
+        curr = curr->next;
+    }
+
+    firstNode = res->next;
+
+}
