@@ -240,3 +240,26 @@ void List::removeAllOccurrences(ItemType item){
     firstNode = res->next;
 
 }
+
+void List::removeAt(int start, int end){
+    if (start > end || start >= size || end >= size) return;
+
+    Node *curr = new Node;
+    curr->next = firstNode;
+    Node *res = curr;
+
+    for (int i = 0; i < start; i++){
+        curr = curr->next;
+    }
+
+    Node *node = firstNode;
+
+    for (int i = 0; i < end + 1; i++){
+        node = node->next;
+    }
+
+    curr->next = node;
+
+    firstNode = res->next;
+
+}
