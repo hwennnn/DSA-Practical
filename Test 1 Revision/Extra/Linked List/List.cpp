@@ -345,3 +345,29 @@ ItemType List::getMiddle(){
 
     return slow->item;
 }
+
+// retrieve length iteratively
+int List::retrieveLength1(){
+    if (firstNode == nullptr) return 0;
+    Node *curr = firstNode;
+    int length = 1;
+
+    while (curr->next){
+        curr = curr->next;
+        length++;
+    }
+
+    return length;
+}
+
+// retrieve length recursively
+int List::retrieveLength2(){
+    return helperRetrieveLength(firstNode);
+}
+
+int List::helperRetrieveLength(Node *node){
+    if (node == nullptr) return 0;
+
+    return 1 + helperRetrieveLength(node->next);
+}
+

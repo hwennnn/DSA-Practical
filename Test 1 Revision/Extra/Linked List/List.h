@@ -19,6 +19,8 @@ private:
 
 	void helperMergeLLAt(Node *node, int pos);
 
+	int helperRetrieveLength(Node *node);
+
 public:
 	List();			// constructor
 

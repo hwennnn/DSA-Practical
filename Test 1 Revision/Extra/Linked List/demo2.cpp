@@ -13,5 +13,5 @@ int main()
     nameList->add('b');
     nameList->add('c');
 
-    cout << nameList->getMiddle() << endl;
+    cout << nameList->retrieveLength2() << endl;
 }
