@@ -21,7 +21,7 @@ int main()
     nameList->add('c');
 
     nameList->print();
-    nameList->removeAt(2,6);
+    nameList->removeAt(1,4);
     nameList->print();
 
 

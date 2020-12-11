@@ -252,13 +252,13 @@ void List::removeAt(int start, int end){
         curr = curr->next;
     }
 
-    Node *node = firstNode;
+    Node *prev = curr;
 
-    for (int i = 0; i < end + 1; i++){
-        node = node->next;
+    for (int i = 0; i < end - start + 1; i++){
+        curr = curr->next;
     }
 
-    curr->next = node;
+    prev->next = curr->next;
 
     firstNode = res->next;
 
