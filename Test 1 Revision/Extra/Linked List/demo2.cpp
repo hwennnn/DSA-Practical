@@ -12,19 +12,15 @@ int main()
     nameList->add('a');
     nameList->add('b');
     nameList->add('a');
-    nameList->add('a');
-    nameList->add('b');
-    nameList->add('c');
-    nameList->add('c');
-    nameList->add('b');
-    nameList->add('c');
-    nameList->add('c');
 
-    cout << nameList->getNoOfUniqueElements() << endl;
+    List *list2 = new List;
+    list2->add('d');
+    list2->add('e');
+    list2->add('a');
+    list2->add('d');
 
     nameList->print();
-    nameList->removeAllOccurrences('a');
+    nameList->mergeLLAt(list2, 3);
     nameList->print();
 
-    cout << nameList->getNoOfUniqueElements() << endl;
 }

@@ -17,6 +17,8 @@ private:
 	Node *firstNode;	// point to the first item
 	int  size;			// number of items in the list
 
+	void helperMergeLLAt(Node *node, int pos);
+
 public:
 	List();			// constructor
 
@@ -95,7 +97,7 @@ public:
 
 	int getNoOfUniqueElements();
 
-	void mergeLLAt(List newList, int start, int end);
+	void mergeLLAt(List* newList, int pos);
 
 	void reverseAt(int start, int end);
 

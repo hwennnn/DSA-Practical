@@ -224,6 +224,7 @@ void List::removeDuplicates2(){
     firstNode = res->next;
 }
 
+// remove all occurs by item given
 void List::removeAllOccurrences(ItemType item){
     Node *curr = new Node;
     curr->item = -1;
@@ -241,6 +242,7 @@ void List::removeAllOccurrences(ItemType item){
 
 }
 
+// remove elements at the range of start...end (inclusive)
 void List::removeAt(int start, int end){
     if (start > end || start >= size || end >= size) return;
 
@@ -264,6 +266,7 @@ void List::removeAt(int start, int end){
 
 }
 
+// get number of unique elements in LinkedList
 int List::getNoOfUniqueElements(){
     set<ItemType> seen;
 
@@ -275,4 +278,30 @@ int List::getNoOfUniqueElements(){
     }
 
     return seen.size();
+}
+
+// merge another LinkedList at given position
+void List::mergeLLAt(List* newList, int pos){
+    if (pos <= size)
+        helperMergeLLAt(newList->firstNode, pos);
+}
+
+void List::helperMergeLLAt(Node *node, int pos){
+    Node *curr = new Node;
+    curr->next = firstNode;
+    Node *res = curr;
+
+    for (int i = 0; i < pos; i++){
+        curr = curr->next;
+    }
+
+    Node *temp = node;
+    while (temp->next)
+        temp = temp->next;
+
+    temp->next = curr->next;
+
+    curr->next = node;
+
+    firstNode = res->next;
 }
