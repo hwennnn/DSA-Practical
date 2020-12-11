@@ -263,3 +263,16 @@ void List::removeAt(int start, int end){
     firstNode = res->next;
 
 }
+
+int List::getNoOfUniqueElements(){
+    set<ItemType> seen;
+
+    Node *curr = firstNode;
+
+    while (curr){
+        seen.insert(curr->item);
+        curr = curr->next;
+    }
+
+    return seen.size();
+}

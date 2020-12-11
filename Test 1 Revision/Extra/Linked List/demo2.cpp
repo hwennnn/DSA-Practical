@@ -20,9 +20,11 @@ int main()
     nameList->add('c');
     nameList->add('c');
 
+    cout << nameList->getNoOfUniqueElements() << endl;
+
     nameList->print();
-    nameList->removeAt(1,4);
+    nameList->removeAllOccurrences('a');
     nameList->print();
 
-
+    cout << nameList->getNoOfUniqueElements() << endl;
 }
