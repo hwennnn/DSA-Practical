@@ -11,16 +11,7 @@ int main()
     List *nameList = new List;
     nameList->add('a');
     nameList->add('b');
-    nameList->add('a');
-    nameList->add('a');
-    nameList->add('b');
-    nameList->add('c');
-    nameList->add('c');
-    nameList->add('b');
-    nameList->add('c');
     nameList->add('c');
 
-    nameList->print();
-    nameList->reverseAt(1,5);
-    nameList->print();
+    cout << nameList->getMiddle() << endl;
 }

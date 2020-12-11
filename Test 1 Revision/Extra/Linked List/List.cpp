@@ -333,3 +333,15 @@ void List::reverseAt(int start, int end){
 
     firstNode = dummy->next;
 }
+
+// get the middle element of the LL
+ItemType List::getMiddle(){
+    Node *slow = firstNode, *fast = firstNode;
+
+    while (fast != nullptr && fast->next != nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow->item;
+}
