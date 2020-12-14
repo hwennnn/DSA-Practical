@@ -147,8 +147,7 @@ int List::helperCountR(Node *node, ItemType item){
     if (node == NULL) return 0;
 
     int count = (node->item == item) ? 1 : 0;
-    node = node->next;
-    return count + helperCountR(node, item);
+    return count + helperCountR(node->next, item);
 }
 
 void List::reverse(){
