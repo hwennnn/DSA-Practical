@@ -57,6 +57,6 @@ public:
 
 	// check if the binary search tree is balanced
 	bool isBalanced();
-	bool isBalanced(BinaryNode* t);
+	int isBalanced(BinaryNode* t);
 };
 

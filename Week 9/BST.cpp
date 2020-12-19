@@ -221,9 +221,16 @@ int BST::getHeight(BinaryNode* t)
 }
 
 // check if the binary search tree is balanced
-bool BST::isBalanced() { return isBalanced(root); }
+bool BST::isBalanced() { return isBalanced(root) != -1; }
 
-bool BST::isBalanced(BinaryNode* t)
+int BST::isBalanced(BinaryNode* t)
 {
-	return false;
+	if (t == nullptr) return 0;
+
+	int left = isBalanced(t->left);
+	int right = isBalanced(t->right);
+
+	if (left == -1 || right == -1 || abs(left - right) > 1) return -1;
+
+	return 1 + max(left, right);
 }
