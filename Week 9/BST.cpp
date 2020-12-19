@@ -223,6 +223,12 @@ int BST::getHeight(BinaryNode* t)
 // check if the binary search tree is balanced
 bool BST::isBalanced() { return isBalanced(root) != -1; }
 
+// When the sub tree of the current node (inclusive) is balanced, 
+// the function isBalanced returns a non-negative value as the height. 
+// Otherwise -1 is returned. 
+// According to the leftHeight and rightHeight of the two children, 
+// the parent node could check if the sub tree
+// is balanced, and decides its return value.
 int BST::isBalanced(BinaryNode* t)
 {
 	if (t == nullptr) return 0;
