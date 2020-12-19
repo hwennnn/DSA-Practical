@@ -215,7 +215,9 @@ int BST::getHeight() { return getHeight(root); }
 
 int BST::getHeight(BinaryNode* t)
 {
-	return 0;
+	if (t == nullptr) return 0;
+
+	return 1 + max(getHeight(t->left), getHeight(t->right));
 }
 
 // check if the binary search tree is balanced

@@ -60,13 +60,15 @@ int main()
 			bst.remove(n);
 		}
 		else
-		if (option == 5){ // display number of items
+		if (option == 5){      // display number of items
 			int count = bst.countNodes();
 			cout << "Number of nodes: " << count << endl;
 		}	
 		else
-		if (option == 6)	// display height
-			cout << "To be implemented..." << endl;
+		if (option == 6){       // display height
+			int height = bst.getHeight();
+			cout << "Height of tree: " << height << endl;
+		}
 		else
 		if (option == 7)	// check if tree is balanced
 			cout << "To be implemented..." << endl;
