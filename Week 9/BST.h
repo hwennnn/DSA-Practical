@@ -39,6 +39,9 @@ public:
 	void postorder();
 	void postorder(BinaryNode* t);
 
+	void levelorder();
+	void levelorder(BinaryNode* t);
+
 	// check if the binary search tree is empty
 	bool isEmpty();
 

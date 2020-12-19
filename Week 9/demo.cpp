@@ -29,7 +29,8 @@ int main()
 		cin >> option;
 
 		if (option == 1)	// display items
-			bst.inorder();
+			// bst.inorder();
+			bst.levelorder();
 		else
 		if (option == 2)	// search item
 		{
@@ -59,8 +60,10 @@ int main()
 			bst.remove(n);
 		}
 		else
-		if (option == 5)	// display number of items
-			cout << "To be implemented..." << endl;
+		if (option == 5){ // display number of items
+			int count = bst.countNodes();
+			cout << "Number of nodes: " << count << endl;
+		}	
 		else
 		if (option == 6)	// display height
 			cout << "To be implemented..." << endl;

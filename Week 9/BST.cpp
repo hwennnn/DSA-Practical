@@ -1,5 +1,6 @@
 // BST.cpp
 #include<iostream>
+#include <queue>
 using namespace std;
 
 #include "BST.h"
@@ -114,6 +115,36 @@ void BST::postorder(BinaryNode* t)
 	}
 }
 
+void BST::levelorder(){
+	levelorder(root);
+}
+
+void BST::levelorder(BinaryNode* t){
+	// using queue
+    queue<BinaryNode*> q; q.push(root);
+
+	if (root == nullptr) return;
+
+	while (q.size() > 0){
+		int length = q.size();
+
+		while (length--){
+			BinaryNode* node = q.front();
+			cout << node->item << " ";
+			q.pop();
+
+			if (node->left){
+				q.push(node->left);
+			}
+
+			if (node->right){
+				q.push(node->right);
+			}
+		}
+
+		cout << endl;
+	}
+}
 
 // check if the binary search tree is empty
 bool BST::isEmpty() { return (root == NULL); }
@@ -162,7 +193,7 @@ void BST::remove(BinaryNode* &t, ItemType item)
 					successor = successor->right;
 				ItemType item = successor->item;
 				remove(t->left, item);	// delete the successor (either case 1 or case 2)
-				t->item = item;			// replace the node’s item with that of the successor
+				t->item = item;			// replace the nodeï¿½s item with that of the successor
 			}
 		}
 	}
@@ -174,7 +205,9 @@ void BST::remove(BinaryNode* &t, ItemType item)
 int BST::countNodes() { return countNodes(root); }
 int BST::countNodes(BinaryNode* t)
 {
-	return 0;
+	if (t == nullptr) return 0;
+
+	return 1 + countNodes(t->left) + countNodes(t->right);
 }
 
 // compute the height of the binary search tree
