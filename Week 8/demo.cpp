@@ -23,17 +23,23 @@ int main(){
     cout << "Please enter a target number to search: ";
     cin >> target; cout << endl;
 
+    // iterative sequential search
+    comparisons = 0;
     int result = search(dataArray, size, target);
     cout << "Sequential Search : " << comparisons << endl;
     printResult(result);
 
+    // iterative binary search
+    comparisons = 0;
     int result2 = binarySearch(dataArray, size, target);
     cout << "Binary Search     : " << comparisons << endl;
     printResult(result2);
 
+    // recursive sequential search
     int result3 = search(dataArray, size, 0, target);
     printResult(result3);
 
+    // recursive binary search
     int result4 = binarySearch(dataArray, 0, size-1, target);
     printResult(result4);
 
@@ -41,7 +47,6 @@ int main(){
 }
 
 int search (int dataArray[], int arraySize, int target){
-    comparisons = 0;
     for (int i = 0; i < arraySize; i++){
         comparisons++;
         if (dataArray[i] == target) return i;
@@ -51,7 +56,6 @@ int search (int dataArray[], int arraySize, int target){
 }
 
 int binarySearch (int dataArray[], int arraySize, int target){
-    comparisons = 0;
     int low = 0, high = arraySize - 1;
 
     while (low <= high){
