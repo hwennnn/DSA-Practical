@@ -29,8 +29,8 @@ int main()
 		cin >> option;
 
 		if (option == 1)	// display items
-			// bst.inorder();
-			bst.levelorder();
+			bst.inorder();
+			// bst.levelorder();
 		else
 		if (option == 2)	// search item
 		{
